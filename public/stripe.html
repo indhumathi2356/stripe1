@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="stripe.css">
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <div class="logo">
+                <img src="data:image/png;base64,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" alt="">
+            </div>
+            <div class="menu">
+                <a href="#home">home</a>
+                <a href="#product">product</a>
+                <a href="#about">about</a>
+                <a href="#contact">contact</a>
+            </div>
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping" id="cart-icon"><span id="cart-count">0</span></i>
+            </a>
+        </div>
+    </header>
+    <section id="home">
+        <div class="home1">
+            <h1>Best Fashion Jewellery</h1><br>
+            <p>Gold and silver covering collection available</p><br>
+            <button>Shop Now</button>
+        </div>
+        <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTS4w2HTDbx61Ma8165OibLTg15HKWKLfYi8bID4lV9ldLB5yk0kuVllvylxXHCAiVCsAUtD2vezTL7EHC5yluYiY137jw5s2zGJWuvPN3M9iR3kAMZtNFm1Q" alt="">
+    </section>
+    <section id="product">
+            <div class="product-container" id="productList">
+            <div class="product">
+                <a href="raya.html"><img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcStXhbNmTIGD69IHCnb7PIz6AZhlT5XdA6LetsIKz89DeF3f6XafMg_fk9-DunkLcTKnCMkrsJ0IC8AiA9QvGdIt4VfwPH-710XpdT3JCBO4SUQih6CGL0B" class="product-img" alt="product"></a>
+                <div class="product-info">
+                <h3 class="product-title">Shining Diva Fashion <br> Jhumki Earrings</h3>
+                <p class="product-price">₹699.00-₹749.00</p>
+                <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+            </div>
+         </div>  
+            <div class="product">
+                <a href="misha.html"><img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR9MUdRScEEt7SiTFZ8MOSUxpRhfg5SAXPzwRNOVHrW04t0sJEkpR8tQ8rwTnRZ8nUqQhw609l6F2KYR3-lU4OMZsXgcP7dUOMSoYVLboCR1FMmUqfN5OO0" class="product-img" alt="product"></a>
+                <div class="product-info">
+                <h3 class="product-title">Shining Diva Fashion <br> Jhumki Earrings</h3>
+                <p class="product-price">₹699.00-₹749.00</p>
+                <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+            </div>
+         </div>   
+            <div class="product">
+                <a href="elisa.html"><img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQltSnzAys0iY19jwAggq2dpqWzaoueuUFVHWdB-GQcCykxp8H0FJC6t11JWv_kajMNOh5ZthZwJskII1cICGWIZQnweWu0Czf5j_uzEKy-dR-GQlHAi9Yw" class="product-img" alt="product"></a>
+                <div class="product-info">
+                <h3 class="product-title">Yellow Chimes Traditional <br>Jewellery Set</h3>
+                <p class="product-price">₹699.00-₹809.00</p>
+                <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+            </div>
+        </div><br>
+        <div class="product">
+                <a href="ria.html"><img src="https://m.media-amazon.com/images/I/61-wj4Q2DrL.jpg" class="product-img" alt="product"></a>
+                <div class="product-info">
+                <h3 class="product-title">ZENEME Rhodium Plated <br>Silver Toned White </h3>
+                <p class="product-price">₹999.00</p>
+                <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>   
+            </div>
+            </div>
+            <div class="product">
+                <a href="keya.html"><img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQ7pZ0HzfypWRWtFabgYjFLbA5FQhswVrE64uDkozGTb8bzpwQm0KrZ9K5MIJac9tUbsRwxaKrird6BgXM6z5OF6yQ78G0hXJCbEWfCt8Sv7jfSfOpX1zBhog" class="product-img" alt="product"></a>
+                <div class="product-info">
+                <h3 class="product-title">RASI COVERING stylish<br> Gold-Plated Chain </h3>
+                <p class="product-price">₹689.00</p>
+                <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+            </div>
+            </div>
+            <div class="product">
+                <a href="adya.html"><img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT8DQ24xSSFNxNJMr04zOXSIPuMOSrO6huKL5MdtdMLs34aMfqN6MMMAYPlVXRZhjsnDHzT8ZbLO6FSwCoBFA0VfH98bUxEuxArVhFogk0IjlIFBD4QmgtsUQ" class="product-img" alt="product"></a>
+                <div class="product-info">
+                <h3 class="product-title">CUTE GOLD One Gram <br> Gold Plated Traditional</h3>
+                <p class="product-price">₹599.00</p>
+                <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+                </div>
+            </div><br>
+            <div class="product">
+                <a href="kids.html"><img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSLxTiLvucWesPYXk3GYiR2qYqCKZ0eriq0PJInssPcpcJyClDu-v-2dQwOQNdiJset7j0n3jbOXipw16tfzwhrQWTMJOp2XtbQYfR51e7NzejR9wQI8ILH" class="product-img" alt="product"></a>
+                <div class="product-info">
+                <h3 class="product-title">CUTE GOLD One <br>Gram Forming Gold</h3>
+                <p class="product-price">₹704.00</p>
+                <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+                </div>
+            </div>
+            <div class="product">
+                <a href="white.html"><img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQPeCVHQE0m14glJS1Uog_2eLeMvD9B9ekxJYsC8F0Paew3bB4GIyhxOjejCfuzuetuHzZFBE5X0FC42pCjP3wb-XoukpgUJsaUCPNFR18H2QOGLPW7jYOo" class="product-img" alt="product"></a>
+                <div class="product-info">
+                <h3 class="product-title">CUTE GOLD Traditional <br> Jewellery Stone Necklace</h3>
+                <p class="product-price">₹704.00</p>
+                <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+                </div>
+            </div>
+            <div class="product">
+                <a href="girl.html"><img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcRfjMWq-B4Hv0Z_3VUwrXGilpmr2Eb3xseCZpLRFf8yQqfdysoT3aIaMtiNGsGYN_NnOLWDowTNSaIBSA3pgjjzoA0AbWxdqAdraIX9CmMNgYz9eHWy8miRLQ" class="product-img" alt="product"></a>
+                <div class="product-info">
+                    <h3 class="product-title">Atasi International Women <br>and Girls' Crystal</h3>
+                    <p class="product-price">₹349.00</p>
+                    <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+                </div>
+            </div><br>
+            <div class="product">
+                <a href="dad.html"><img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSjwto90Kdd-j5sksnunkdUcyTYJ8bIi-jRbEEfE61EbIxZQRG5iJdlUAez5rM1aoPdRCQ2r-RjELFtl66RdNg_lKh-lbvNo_z1F-JtAGRzQOaiMohsfaa8" class="product-img" alt="product"></a>
+                <div class="product-info">
+                    <h3 class="product-title">Zeneme Traditional Brass <br>18 K Gold Plated</h3>
+                    <p class="product-price">₹349.00</p>
+                    <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+                </div>
+            </div>
+            <div class="product">
+                     <a href="mom.html"><img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRuDixaviAaM38MxqdI7fJ-hbze-g3JxcDh2LZaSdZGrMMqqSKOeMayJ7KVO6nTRRsfyQsK0-8J3f8KO1hyDva00iTTx1PIAUZ_mVHyNp19SF_Ww9xFvL5O" class="product-img" alt="product"></a>
+                <div class="product-info">
+                    <h3 class="product-title">JFL Traditional Ethnic <br>Beaded Necklace Set</h3>
+                    <p class="product-price">₹349.00</p>
+                    <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+                </div>
+            </div>
+            <div class="product">
+                    <a href="captain.html"><img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRZzRnKIOoPddEAmTSmk90QuB6cUmBp0nAoHL6mvp1c9Lt21Dg4oPzmxyZk1mgdfVeiYSNpxgRlBWI2zkRt9P6FCHv14qb1qrUgiaLsVC9ibStSWUSaBwHbEQ" class="product-img" alt="product"></a>
+                <div class="product-info">
+                    <h3 class="product-title">Shining Diva Fashion <br>Crystal Cuff Bracelet</h3>
+                    <p class="product-price">₹449.00</p>
+                    <a class="add-to-cart" onclick="addToCart(this.parentElement.parentElement)">Add to cart</a>
+                </div>
+            </div>
+    </div>
+    </section>
+    <section id="about">
+        <h2>About us</h2>
+        <div class="aboutme">
+        <div class="about">
+             <h1>About our online store</h1><br>
+            <p>The frashion jewellery is a premium clothing brand,It is a part of Sindhu Productions. The fashion jewellery is owned by Sindhu & Raji.</p><br>
+            <p>Sindhu & Raji are Friends based in chennai who decided to create a premium brand dedictaed to their subscribers as well as the common people</p><br>
+            <p>The fashion jewellery aim is to provide premium quality clothing for the people in affordable prices in a premium design & fit.</p><br>
+            <p>We are available on Instagram,Whatsapp & Facebook for orders.</p><br>
+        </div>
+        <img src="data:image/png;base64,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" alt="">
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contact us</h2>
+        <div class="contact">
+            <img src="https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/201908311450119166_map_image.jpg" alt="">
+            <div class="contact1">
+        <h2>react us</h2>
+           <form action="">
+        <label>Name:</label>
+        <input type="text" placeholder="Enter Your Name"><br><br>
+        <label>Email:</label>
+        <input type="text" placeholder="Enter your Email"><br><br>
+        <label>Phone:</label>
+        <input type="text" placeholder="Enter Your Phone"><br><br>
+        <label>Message:</label>
+        <textarea name="message" id="message" placeholder="your message" column="10"></textarea><br>
+       <button type="submit">Your Message</button>
+       </form>
+            </div>
+        </div><hr>
+        </section>
+        <div class="sect">
+            <div class="text">
+                <img src="data:image/png;base64,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" alt="">
+
+            </div>
+            <div class="text">
+                <h2>Trend</h2>
+                <p>Service</p>
+                <p>Customer</p>
+                <p>Satisfaction</p>
+            </div>
+            <div class="text">
+                <h2>About Us</h2>
+                <p>4/30 gst chennai,chennai-600001.</p>
+                <p>Service</p>
+                <p>Customer</p>
+                <p>Satisfaction</p>
+            </div>
+            <div class="text">
+                <h2>Contect</h2>
+                <p>7200453349</p>
+                <p>Customer</p>
+                <p>Comming up</p>
+                <p>New Arrival</p>
+            </div>
+        </div><hr>
+        <div class="footer">
+            <p>&#169;2025 the online jewellery shop.All right reserved.</p>
+        </div>
+        <script src="cart.js"></script>
+        <script src="stripe.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/script.js/2.0.2/script.min.js" integrity="sha512-UWtTDM6wtl/qutDD6i1JOGZGiEd92dveVzuLl8sMBkMHlOHcbZdexM7ZrKkeaugW7vhqDnWc2pPD/ohEV+BBbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

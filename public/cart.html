@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="stripe.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/script.js/2.0.2/script.min.js" integrity="sha512-UWtTDM6wtl/qutDD6i1JOGZGiEd92dveVzuLl8sMBkMHlOHcbZdexM7ZrKkeaugW7vhqDnWc2pPD/ohEV+BBbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <div class="logo">
+                <img src="data:image/jpeg;base64,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" alt="">
+            </div>
+            <div class="menu">
+                <a href="#home">home</a>
+                <a href="#product">product</a>
+                <a href="#about">about</a>
+                <a href="contact">contact</a>
+            </div>
+            <a href="cart.html">
+                <i class="fa-solid fa-cart-shopping" id="cart-icon"><span id="cart-count">0</span></i>
+            </a>
+        </div>
+    </header>
+    <section class="cart-container container">
+        <a href="stripe.html" class="back-homepage"><i class="fa-solid fa-arrow-right"></i><span>Back To Home</span></a>
+        <h2 class="cart-s-title">Shopping Cart</h2>
+        <div class="cart-box">
+            <div class="cart-data">
+            <div id="cartItem10"></div>
+        </div>
+        <div class="cart-t">
+            <div id="cartTotal"></div>
+            <a href="#" class="checkout-btn">Checkout</a>
+        </div>
+        </div>
+    </section>
+    <script src="cart.js"></script>
+    <script src="stripe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/script.js/2.0.2/script.min.js" integrity="sha512-UWtTDM6wtl/qutDD6i1JOGZGiEd92dveVzuLl8sMBkMHlOHcbZdexM7ZrKkeaugW7vhqDnWc2pPD/ohEV+BBbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
